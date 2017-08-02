@@ -13,7 +13,8 @@ const render = (root)=>{
 };
 
 const state = {
-    screen : null
+    screen : null,
+    user: null
 };
 
 $( _=>{
