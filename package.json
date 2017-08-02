@@ -1,0 +1,35 @@
+{
+  "name": "rimac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miriampc/rimac.git"
+  },
+  "keywords": [],
+  "author": "@miriam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "express": "^4.15.3",
+    "gulp": "^3.9.1",
+    "gulp-6to5": "^3.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/miriampc/rimac/issues"
+  },
+  "homepage": "https://github.com/miriampc/rimac#readme"
+}
