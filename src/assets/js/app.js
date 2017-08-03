@@ -1,4 +1,9 @@
 "use strict";
+
+const state= {
+    screen : null,
+    user: null
+};
 const render = (root)=>{
     root.empty();
     const section = $('<section class="components"></section>');
@@ -10,11 +15,6 @@ const render = (root)=>{
         section.append(state.screen( _ => render(root)));
     }
     root.append(section);
-};
-
-const state = {
-    screen : null,
-    user: null
 };
 
 $( _=>{
