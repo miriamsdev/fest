@@ -2,7 +2,8 @@
 
 const state= {
     screen : null,
-    user: null
+    user: null,
+    vehicle: null
 };
 const render = (root)=>{
     root.empty();

@@ -35,7 +35,6 @@ const DniRegister = (update) => {
     check_user(user_dni.val());
   });
   continue_btn.on('click', _ => {
-    console.log('Estás en registro de datos de auto');
     state.screen = PlacaRegister;
     const root =$('#root');
     render(root);
