@@ -1,6 +1,56 @@
-body {
-  /*  background: nth($color__corp,6);*/ }
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: "roboto"; }
+  font-family: "Open Sans"; }
+
+header {
+  background: #e6281e;
+  height: 15vh;
+  width: 100%;
+  text-align: center; }
+
+/*@media(min-width: 768px){
+    img.responsive-img{
+        max-width: 16%;
+    }
+}*/
+.continue {
+  position: absolute;
+  bottom: 7em;
+  left: 33%; }
+
+label {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  color: #000 !important; }
+
+::-webkit-input-placeholder {
+  font-size: 1.2em; }
+
+h1 {
+  margin: 0; }
+
+.dataUser__welcome {
+  font-weight: bold;
+  padding: 0.8em 0;
+  font-size: 2em; }
+
+.dataUser__text {
+  font-size: 1.1em;
+  padding-bottom: 0.6em; }
+
+.dataUser__input {
+  margin-top: 2em; }
+
+.dataUser__button {
+  background: #84bd00;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 2px 0px 10px 0 rgba(0, 0, 0, 0.19); }
+
+.btn:hover, .btn-large:hover {
+  background: #84bd00 !important; }
+
+.input-field.col label {
+  left: 0; }
