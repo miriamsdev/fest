@@ -1,6 +1,122 @@
 @import "utils";
+@import "user";
 
 * {
   box-sizing: border-box;
   font-family: $font;
+}
+
+#map {
+  height: 60vh;
+  width: 100%;
+  color: #212121;
+  color:rgba(236, 229, 55, 0.81)
+}
+.caret {
+  color: nth($color__corp,3);
+}
+.input-field label {
+  color: nth($color__corp,3);
+}
+.btn-order {
+  background: nth($color__corp,3);
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.breadcrumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: nth($color__corp,1);
+}
+
+.p1 {
+  background: nth($color__corp,1);
+}
+.p2 {
+  background: nth($color__corp,2);
+}
+.p3 {
+  background: nth($color__corp,3);
+}
+.p4 {
+  background: nth($color__corp,4);
+}
+////Progress
+.progress__register {
+    position: relative;
+    bottom: -190px !important;
+    left: 1em;
+}
+.estado-3pasos {
+  width: 90%;
+  font-size: .75em;
+  margin: 0 auto 20px;
+}
+.estado-3pasos .paso-1 {
+  width: 20%;
+}
+.estado-3pasos .paso-2 {
+  width: 20%;
+}
+.estado-3pasos .paso-3 {
+  width: 20%;
+}
+.estado-3pasos .paso-4 {
+  width: 30%;
+}
+.estado-3pasos .paso-2 span {
+  left: 38%;
+}
+.estado-2pasos .paso-2 span, .estado-3pasos .paso-3 span, .estado-3pasos .paso-4 span{
+  right: 0;
+}
+
+.estado-3pasos li {
+  height: 14px;
+  position: relative;
+}
+.estado-3pasos li{
+  padding-top: 18px;
+  float: left;
+}
+li{
+  list-style-type: none;
+}
+
+.estado-login .presente span {
+  border: 3px solid #fec007;
+  color: #fec007;
+}
+.estado-3pasos .paso-1 span {
+  left: 0;
+}
+.estado-3pasos span {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 40px;
+  position: absolute;
+  width: 40px;
+  font-size: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+//.estado-login .presente p {
+//  background-color: #fec007;
+//}
+.estado-3pasos p {
+  background-color: #cfcecf;
+  height: 7px;
+}
+.estado-3pasos span, .estado-4pasos span {
+  border: 3px solid #cfcecf;
+  color: #cfcecf;
+  line-height: 15px;
+  top: 0;
+  text-align: center;
 }
