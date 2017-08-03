@@ -91,21 +91,9 @@ const Garages = (update) =>{
     container.append(mapContainer);
 
     //Lista talleres
-    const ordenar = $('<span class="col s2">ORDENAR: </span>');
-    const buttonABC = $('<button id="orderABC" class="btn btn-order">A - Z</button>');
-    const button123 = $('<button id="orderPrecio" class="btn btn-order">Menor Precio</button>');
-
     const ul = $(`<ul id="garages" class="collapsible" data-collapsible="accordion">
     </ul>`);
-    row.append(ordenar);
-    row.append(buttonABC);
-    row.append(button123);
 
-    buttonABC.on('click',(e)=>{
-        // e.preventDefault();
-        console.log("ord");
-        orderByABC();
-    });
     row.append(ul);
     container.append(row);
     ul.collapsible();
@@ -122,16 +110,3 @@ const Garages = (update) =>{
     return container;
 };
 
-function orderByABC() {
-    console.log(state.garage);
-        return state.garage.sort((a, b) =>{
-            if (a.nombre > b.nombre) {
-                return 1;
-            }
-            if (a.nombre < b.nombre) {
-                return -1;
-            }
-            // a must be equal to b
-            return 0;
-        });
-}
