@@ -57,13 +57,6 @@ const PagosCulqi = (update)=>{
     });
     pago.idcotizacion= 2;
       pay.on('click', ()=>{
-            /*$.post("http://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/culqi/pagar",{"idPlan":0},function(response){
-              pay.idcotizacion = reponse;
-              console.log(response);
-              // state.screen = PlacaRegister;
-              // const root =$('#root');
-              // render(root);
-            },"json");*/
             $.ajax({
                 method :"POST",
                 dataType : "json",
@@ -72,6 +65,8 @@ const PagosCulqi = (update)=>{
                 data : '{"idPlan":'+pago.idcotizacion+'}'
             }).done((data)=>{
                 console.log(data);
+                state.screen = Shopping_thanks;
+                update();
             });
     });
 
