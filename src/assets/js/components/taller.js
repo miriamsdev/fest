@@ -91,11 +91,47 @@ const Garages = (update) =>{
     container.append(mapContainer);
 
     //Lista talleres
+    const ordenar = $('<span class="col s2">ORDENAR: </span>');
+    const buttonABC = $('<button id="orderABC" class="btn btn-order">A - Z</button>');
+    const button123 = $('<button id="orderPrecio" class="btn btn-order">Menor Precio</button>');
+
     const ul = $(`<ul id="garages" class="collapsible" data-collapsible="accordion">
     </ul>`);
+    row.append(ordenar);
+    row.append(buttonABC);
+    row.append(button123);
+
+    buttonABC.on('click',(e)=>{
+        // e.preventDefault();
+        console.log("ord");
+        orderByABC();
+    });
     row.append(ul);
     container.append(row);
     ul.collapsible();
 
+    const progressBar = $(`<div class="progress__register">
+    <ul class="estado-3pasos estado-login">
+        <li class="paso-1 presente"><span><img class="breadcrumb" src="assets/img/iconos/usuario.svg" alt="user"></span><p></p></li>
+        <li class="paso-2 presente"><span><img class="breadcrumb" src="assets/img/iconos/auto.svg" alt="auto"></span><p></p></li>
+        <li class="paso-3 presente"><span><img class="breadcrumb" src="assets/img/iconos/plan.svg" alt="check"></span><p></p></li>
+        <li class="paso-4 presente"><span><img class="breadcrumb" src="assets/img/iconos/confirmacion.svg" alt="confirmacion"></span><p></p></li>
+    </ul>
+  </div>`);
+    container.append(progressBar);
     return container;
 };
+
+function orderByABC() {
+    console.log(state.garage);
+        return state.garage.sort((a, b) =>{
+            if (a.nombre > b.nombre) {
+                return 1;
+            }
+            if (a.nombre < b.nombre) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+}
