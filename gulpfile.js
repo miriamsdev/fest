@@ -78,7 +78,7 @@ gulp.task('img-watch', ["img"], function (done) {
 
 gulp.task("serve", function () {
   browserSync.init({
-    port:3000,  
+    port:3007,  
     server: {
       baseDir: config.dist
     }

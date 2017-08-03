@@ -23,12 +23,6 @@ const PagosCulqi = (update)=>{
     
     const pay = $('<input type="submit" id="pay" value="Pagar" disabled>');
         
-    pay.on('click', ()=>{
-        $.post("http://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/culqi/pagar",{id: pay.name},function(response){
-             pay.idcotizacion = reponse;
-         },"json");
-    });
-    
     cvv.on('keyup', (e)=>{
         if($(this).val() >= 1 && $(this).val() <= 3){
          validaInputs();
@@ -60,6 +54,13 @@ const PagosCulqi = (update)=>{
         if($(this).val().trim().length == 0){
           dataset.error = "Debe ingresar su correo electrónico";
         }
+    });
+    
+    pay.on('click', ()=>{
+        $.post("http://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/culqi/pagar",{idPlan:0},function(response){
+             pay.idcotizacion = reponse;
+            console.log(pay);
+         },"json");
     });
     
     const validaInputs = () =>{
