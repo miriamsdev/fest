@@ -1,6 +1,4 @@
 const Garages = (update) =>{
-    console.log(state.garage);
-
   const container = $('<section class="container"></section>');
   const row = $('<div class="row">Talleres</div>');
   const ul = $(`<ul class="collapsible" data-collapsible="accordion">
@@ -42,12 +40,17 @@ const Garages = (update) =>{
     const district = $(`<div class="input-field col s12 m3"></div>`);
     const selectDis = $(`<select>
                             <option value="" disabled selected>Elige una opción</option>
-                            <option value="">Todos</option>
+                            <option value="Todos">Todos</option>
                          </select>`);
 
-    // const districtFilter = state.garage.filter((e)=>{
-    //     return state.garage.indexOf(e.distrito)==-1;
+    // Array.prototype.unique = (element) =>{
+    //     return function(){return this.filter(element)}}(function(element,b,c){return c.indexOf(element,b+1)<0
     // });
+        const arr=[];
+    const districtFilter = state.garage.map((e)=>{
+        return arr.push(e.distrito);
+    });
+    console.log(districtFilter);
     let option;
     state.garage.forEach((e)=>{
         option = $(`<option value="${e.distrito}" data-lat="${e.latitud}" data-lng="${e.longitud}">${e.distrito}</option>`);
@@ -74,13 +77,12 @@ const Garages = (update) =>{
     container.append(divFilter);
 
     const mapContainer =$('<div class="map-container"></div>');
-    mapContainer.append(showMap());
+    mapContainer.append(showMap(''));
     selectDis.on('change',(e)=>{
         const districtSelected = selectDis.val();
         state.lat = option.data('lat');
         state.lng = option.data('lng');
-        showMarkerSelected(districtSelected);
-       console.log(state.lat + "--"+state.lng);
+        mapContainer.append(showMap(districtSelected));
     });
 
     container.append(mapContainer);
