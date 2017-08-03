@@ -8,6 +8,8 @@ const showMap = (inputSearch) => {
             lat: -12.043333,
             lng: -77.028333
         });
+
+        //Añade marcador a Mapa
         state.garage.forEach((elem)=> {
             if (inputSearch == "" || inputSearch == "Todos") {
                 addMarkerstoMap(map,elem);
@@ -15,10 +17,7 @@ const showMap = (inputSearch) => {
                 addMarkerstoMap(map,elem);
             }else if(inputSearch == elem.tipo){
                 addMarkerstoMap(map,elem);
-            }else {
-                console.log("aha");
             }
-
         });
 
         //Determina la ubicación actual
@@ -38,6 +37,7 @@ const showMap = (inputSearch) => {
                         content: '<div style="color:#212121;"><strong>Tu ubicación actual:</strong><p>lima</p></div>'
                     }
                 });
+                //Obtiene el listado de Talleres
                 state.garage.forEach((elem)=>{
                     if (inputSearch == "" || inputSearch == "Todos") {
                         getRoutes(map,elem,latitud,longitud);
@@ -45,8 +45,6 @@ const showMap = (inputSearch) => {
                         getRoutes(map,elem,latitud,longitud);
                     }else if(inputSearch == elem.tipo){
                         getRoutes(map,elem,latitud,longitud);
-                    }else {
-                        console.log("aha");
                     }
                 });
 
@@ -55,7 +53,7 @@ const showMap = (inputSearch) => {
                 alert('Geolocalización fallada: '+error.message);
             },
             not_supported: () => {
-                alert("Tu navegador no soporta la API geolocation");
+                alert("Tu navegador no soporta la API de geolocation");
             }
         });
     });
@@ -88,8 +86,9 @@ function addMarkerstoMap(map,elem) {
              const distance = response[0].legs[0].distance.value/1000;
              const li=$(`<li>
                                 <div class="collapsible-header">
-                                    <div class="col s8"><i class="material-icons">location_on</i>${elem.nombre}</div>
+                                    <div class="col s7"><i class="material-icons caret">location_on</i>${elem.nombre}</div>
                                     <div class="col s4"><strong>Distancia: </strong> ${distance} Km.</div>
+                                    <span class="col s1 caret">▼</span>
                                 </div>
                                 <div class="collapsible-body">
                                     <ul>

@@ -4,10 +4,16 @@
   box-sizing: border-box;
   font-family: $font;
 }
-
+$color__corp: rgb(255, 198, 0), rgb(64, 193, 172), rgb(132, 189, 0), rgb(152, 29, 151), rgb(255, 130, 0),rgb(218, 24, 132);
 #map {
   height: 60vh;
   width: 100%;
   color: #212121;
   color:rgba(236, 229, 55, 0.81)
+}
+.caret {
+  color: nth($color__corp,3);
+}
+.input-field label {
+  color: nth($color__corp,3);;
 }

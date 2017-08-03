@@ -1,6 +1,7 @@
 const Garages = (update) =>{
   const container = $('<section class="container"></section>');
-  const row = $('<div class="row">Lista de Talleres</div>');
+  const welcome = $('<p class="dataUser__welcome">¡Encuentra tu taller más cercano!</p><p class="dataUser__text"></p>');
+  const row = $('<div class="row"><h4>Lista de Talleres</h4></div>');
 
     const divFilter = $('<div class="row"></div>');
     const department = $(`<div class="input-field col s12 m3">                            
@@ -23,9 +24,6 @@ const Garages = (update) =>{
                             <option value="" disabled selected>Elige una opción</option>
                             <option value="Todos">Todos</option>
                          </select>`);
-    Array.prototype.unique=function(a){
-        return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
-    });
 
     const arrDistrict=[], arrTypeGarage=[],uniqueDistrict = [], uniqueTypeGarage = [];
     state.garage.forEach((e)=>{
@@ -61,6 +59,7 @@ const Garages = (update) =>{
 
     const labelTaller = $('<label>TIPO DE TALLER</label>');
 
+    container.append(welcome);
     divFilter.append(department);
     divFilter.append(province);
     district.append(selectDis);
