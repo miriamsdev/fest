@@ -6,7 +6,8 @@ const showMap = (inputSearch) => {
         const map = new GMaps({
             div: '#map',
             lat: -12.043333,
-            lng: -77.028333
+            lng: -77.028333,
+            setZoom: 12
         });
 
         //Añade marcador a Mapa
@@ -33,6 +34,7 @@ const showMap = (inputSearch) => {
                     lat: latitud,
                     lng: longitud,
                     color: 'blue',
+                    setZoom:9,
                     infoWindow: {
                         content: '<div style="color:#212121;"><strong>Tu ubicación actual:</strong><p>lima</p></div>'
                     }

@@ -33,6 +33,18 @@ hr.style-two {
   background: nth($color__corp,1);
 }
 
+.p1 {
+  background: nth($color__corp,1);
+}
+.p2 {
+  background: nth($color__corp,2);
+}
+.p3 {
+  background: nth($color__corp,3);
+}
+.p4 {
+  background: nth($color__corp,4);
+}
 ////Progress
 .progress__register {
   margin-bottom: 70px;
@@ -91,9 +103,9 @@ li{
   align-items: center;
   justify-content: center;
 }
-.estado-login .presente p {
-  background-color: #fec007;
-}
+//.estado-login .presente p {
+//  background-color: #fec007;
+//}
 .estado-3pasos p {
   background-color: #cfcecf;
   height: 7px;

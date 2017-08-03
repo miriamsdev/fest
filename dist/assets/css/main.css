@@ -28,6 +28,18 @@ hr.style-two {
   border-radius: 50%;
   background: #ffc600; }
 
+.p1 {
+  background: #ffc600; }
+
+.p2 {
+  background: #40c1ac; }
+
+.p3 {
+  background: #84bd00; }
+
+.p4 {
+  background: #981d97; }
+
 .progress__register {
   margin-bottom: 70px; }
 
@@ -82,9 +94,6 @@ li {
   display: flex;
   align-items: center;
   justify-content: center; }
-
-.estado-login .presente p {
-  background-color: #fec007; }
 
 .estado-3pasos p {
   background-color: #cfcecf;
