@@ -1,12 +1,12 @@
 "use strict";
 
 const DniRegister = (update) => {
-  const user_data= $('<section id="user-data"></section>');
+  const user_data= $('<section></section>');
   const label= $('<label for="">Ingrese nro de DNI</label>');
   const user_dni = $('<input id="user-dni" type="text" name="" value="" maxlength="8">');
   const search_btn= $('<button id="search" type="button" name="button">BUSCAR</button>');
   const continue_btn= $('<button id="continue" type="button" name="button">CONTINUAR</button>');
-  const result= $('<p class="result"></p>');
+  const result= $('<p id="result"></p>');
 
   user_data.append(label);
   user_data.append(user_dni);
@@ -46,12 +46,12 @@ const DniRegister = (update) => {
 }
 
 const check_user= (dni) => {
-  const report= $('.result');
+  const report= $('#result');
   report.empty();
   let url= 'https://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/persona/' + dni ;
   $.getJSON(url, (response)=>{
     state.user= response;
-    const user_name= $('<span class="user-name">'+ state.user.nombres+ ' ' + state.user.apellidos +'</span>');
+    const user_name= $('<span>'+ state.user.nombres+ ' ' + state.user.apellidos +'</span>');
     report.text("Hola ");
     report.append(user_name);
     $('#search').hide();
