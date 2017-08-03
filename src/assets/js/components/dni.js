@@ -63,7 +63,7 @@ const check_user= (dni) => {
     state.user= response;
       var nom = state.user.nombres;
       var ape = state.user.apellidos;
-    const user_name= $('<span style="text-transform: capitalize;">'+ nom.toLowerCase()+ ' ' + ape.toLowerCase() +'</span>');
+    const user_name= $('<span style="text-transform: capitalize; font-weight: bold;">'+ nom.toLowerCase()+ ' ' + ape.toLowerCase() +'</span>');
     report.text("Hola ");
     report.append(user_name);
     $('#search').hide();

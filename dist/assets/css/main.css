@@ -10,11 +10,6 @@ header {
   width: 100%;
   text-align: center; }
 
-/*@media(min-width: 768px){
-    img.responsive-img{
-        max-width: 16%;
-    }
-}*/
 .continue {
   position: absolute;
   bottom: 7em;
@@ -24,6 +19,12 @@ label {
   font-size: 1.2em !important;
   font-weight: bold !important;
   color: #000 !important; }
+
+.contmobile .collapsible {
+  margin: 0; }
+
+.plan .infoplan {
+  margin-bottom: 10px; }
 
 ::-webkit-input-placeholder {
   font-size: 1.2em; }

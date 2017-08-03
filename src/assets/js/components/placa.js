@@ -3,12 +3,12 @@
 const PlacaRegister = (update) => {
   const vehicle_data= $('<section id="vehicle-data" class="container"></section>');
   var name = state.user.nombres;
-  const welcome = $('<p class="dataUser__welcome " style="text-transform: capitalize;">¡Hola '+name.toLowerCase()+' !</p><p class="dataUser__text">Para continuar con la cotización de tu seguro vehicular ingresa tu Número de Placa</p>');
+  const welcome = $('<p class="dataUser__welcome" style="text-transform: capitalize;">¡Hola '+name.toLowerCase()+' !</p><p class="dataUser__text">Para continuar con la cotización de tu seguro vehicular ingresa tu Número de Placa</p>');
     
   const contentplaca = $('<div class="input-field col s12 dataUser__input"></div>'); 
   
   const label= $('<label for="vehicle-plate" class="active">PLACA</label>');
-  const vehicle_plate = $('<input id="vehicle-plate" type="text" placeholder="Ingrese nro de placa" maxlength="6">');
+  const vehicle_plate = $('<input id="vehicle-plate" type="text" placeholder="Ingresa Número de Placa" maxlength="6">');
   
   const contentButton = $('<div class="input-field col s12 continue"></div>');
   const search_btn= $('<button id="search" type="button" name="button" class="btn-large dataUser__button">BUSCAR</button>');
@@ -67,7 +67,7 @@ const check_vehicle= (placa) => {
   $.getJSON(url, (response)=>{
     state.vehicle= response;
     if (state.vehicle.anioFabricacion == 2017) {
-      const vehicle_description= $('<span>'+ state.vehicle.marca + ' ' + state.vehicle.modelo + ' de ' + state.vehicle.anioFabricacion +'</span>');
+      const vehicle_description= $('<span style="font-weight:bold;">'+ state.vehicle.marca + ' ' + state.vehicle.modelo + ' de ' + state.vehicle.anioFabricacion +'</span>');
       report.text("Cuentas con un ");
       report.append(vehicle_description);
       $('#search').hide();
