@@ -15,7 +15,7 @@ const DniRegister = (update) => {
   user_data.append(result);
 
   user_dni.on("keypress", (e)=> {
-    let tecla= e.which || e.keyCode;
+    let tecla= e.keyCode;
     if (tecla > 31 && (tecla < 48 || tecla > 57)) {
       return false;
     }else {
