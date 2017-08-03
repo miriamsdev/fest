@@ -36,6 +36,9 @@ const DniRegister = (update) => {
   });
   continue_btn.on('click', _ => {
     console.log('Estás en registro de datos de auto');
+    state.screen = PlacaRegister;
+    const root =$('#root');
+    render(root);
   });
   continue_btn.hide();
   search_btn.prop('disabled', true);
