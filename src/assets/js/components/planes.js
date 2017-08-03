@@ -1,6 +1,6 @@
 'use strict';
 
-const Planes = ()=>{
+const Planes = (update) => {
     const container = $('<section class="container"></section>');
     const titleplan = $('<h3>¡Crea un Plan a tu conveniencia!</h3>');
     const infoplan = $('<p>Elige el plan que más te guste:</p>');
@@ -9,7 +9,7 @@ const Planes = ()=>{
     $.getJSON('https://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/plan', (json) => {
         state.plan = json;
         $.each(state.plan, (i,val)=>{
-            const contmobile = $('<div class="hide-on-large-only"></div>');
+            const contmobile = $('<div class="hide-on-large-only hide-on-med-only"></div>');
             const ul = $('<ul class="collapsible" data-collapsible="accordion">');
             const li = $('<li></li>');
             const collap_header = $('<div class="collapsible-header">Plan<br>'+state.plan[i].nombre+'</div>');
@@ -17,7 +17,7 @@ const Planes = ()=>{
             const labelmobile = $('<label for="slider">Número de Cuotas</label>');
             const rangemobile = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
             const primamobile = $('<p>S/ 0.00</p>');
-            const buttonmobile = $('<button>Adquirir</button>');
+            const buttonmobile = $('<button type="button" name="button">Adquirir</button>');
             
             
             const plan = $('<div class="hide-on-small-only col m4 l4"></div>');
@@ -25,7 +25,7 @@ const Planes = ()=>{
             const label = $('<label for="slider">Número de Cuotas</label>');
             const range = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
             const prima = $('<p>S/ 0.00</p>');
-            const button = $('<button>Adquirir</button>');
+            const button = $('<button type="button" name="button">Adquirir</button>');
             
             let selectrange = $(".value").text();
             let valueprima = state.plan[i].prima;
@@ -66,10 +66,18 @@ const Planes = ()=>{
                 plan.append(cober);
             });
             
-            button.on('click', ()=>{
+            button.on('click', _=>{
                 state.selectPlan = state.plan[i].id; 
-                state.selectPlan = state.plan[i].prima; 
-                state.selectPlan = state.plan[i];
+                state.screen = Cotizacion;
+                const root =$('#root');
+                render(root);
+            });
+            
+            buttonmobile.on('click', _=>{
+                state.selectPlan = state.plan[i].id; 
+                state.screen = Cotizacion;
+                const root =$('#root');
+                render(root);
             });
             
             plan.append(button);
