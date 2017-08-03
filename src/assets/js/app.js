@@ -4,21 +4,30 @@ const render = (root)=>{
     const section = $('<section class="components"></section>');
 
     if(state.screen == null){
-        section.append(DniRegister( _ => render(root)));
+        section.append(Garages( _ => render(root)));
     }
     else{
         section.append(state.screen( _ => render(root)));
     }
     root.append(section);
+
 };
 
 const state = {
-    screen : null
+    screen : null,
+    idCotizacion:4
 };
 
 $( _=>{
-    const root =$('#root');
-    render(root);
+
+    $.getJSON(`https://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/taller/04`, (json) => {
+        state.garage = json;
+        console.log(json);
+        const root =$('#root');
+        render(root);
+        $('select').material_select();
+    });
+
 });
 
 //end points GET
