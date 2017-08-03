@@ -4,7 +4,8 @@ const render = (root)=>{
     const section = $('<section class="components"></section>');
 
     if(state.screen == null){
-        section.append(DniRegister( _ => render(root)));
+        //section.append(DniRegister( _ => render(root)));
+        section.append(Planes( _ => render(root)));
     }
     else{
         section.append(state.screen( _ => render(root)));
@@ -13,7 +14,9 @@ const render = (root)=>{
 };
 
 const state = {
-    screen : null
+    screen : null,
+    plan: null,
+    selectPlan: null
 };
 
 $( _=>{
@@ -28,3 +31,4 @@ $( _=>{
 
 //end points POST
 //http://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/culqi/pagar
+
