@@ -51,9 +51,9 @@ const PagosCulqi = (update)=>{
 
     mail.on('keyup', (e)=>{
         validaInputs();
-        if($(this).val().trim().length == 0){
-          dataset.error = "Debe ingresar su correo electrónico";
-        }
+        // if($(this).val().trim().length == 0){
+        //   dataset.error = "Debe ingresar su correo electrónico";
+        // }
     });
     pago.idcotizacion= 2;
       pay.on('click', ()=>{
@@ -71,7 +71,8 @@ const PagosCulqi = (update)=>{
     });
 
     const validaInputs = () =>{
-        if(name.val() !="" && lastName.val() !="" && mail.val() !="" && cvv.val() !="" && year.val() !="" && month.val() !="" && nroTarjeta.val() !=""){pay.removeAttr("disabled")}else{pay.attr("disabled", true)};
+        // if(name.val() !="" && lastName.val() !="" && cvv.val() !="" && year.val() !="" && month.val() !="" && nroTarjeta.val() !=""){pay.removeAttr("disabled")}else{pay.attr("disabled", true)};
+        if(name.val() !="" && lastName.val() !="" && cvv.val() !="" && year.val() !="" && month.val() !="" && nroTarjeta.val() !=""){pay.removeAttr("disabled")}else{pay.attr("disabled", true)};
     }
 
     contentInputName.append(name);
