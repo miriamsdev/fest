@@ -76,14 +76,16 @@ const Garages = (update) =>{
     const mapContainer =$('<div class="map-container"></div>');
     mapContainer.append(showMap(''));
     selectDis.on('change',(e)=>{
+        e.preventDefault();
         const districtSelected = selectDis.val();
-        state.lat = option.data('lat');
-        state.lng = option.data('lng');
+        mapContainer.empty();
         mapContainer.append(showMap(districtSelected));
     });
 
     selectTypeGarage.on('change',(e)=>{
+        e.preventDefault();
         const typeSelected = selectTypeGarage.val();
+        mapContainer.empty();
         mapContainer.append(showMap(typeSelected));
     });
 

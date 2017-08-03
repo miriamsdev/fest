@@ -14,7 +14,7 @@ const showMap = (inputSearch) => {
             }else if(inputSearch == elem.distrito){
                 addMarkerstoMap(map,elem);
             }else if(inputSearch == elem.tipo){
-                addMarkersto(map,elem);
+                addMarkerstoMap(map,elem);
             }else {
                 console.log("aha");
             }
@@ -38,30 +38,18 @@ const showMap = (inputSearch) => {
                         content: '<div style="color:#212121;"><strong>Tu ubicación actual:</strong><p>lima</p></div>'
                     }
                 });
-
                 state.garage.forEach((elem)=>{
-                    map.getRoutes({
-                        origin: [latitud, longitud],
-                        destination: [elem.latitud, elem.longitud],
-                        callback: function(response){
-                            const distance = response[0].legs[0].distance.value/1000;
-                            const li=$(`<li>
-                                <div class="collapsible-header">
-                                    <div class="col s8"><i class="material-icons">location_on</i>${elem.nombre}</div>
-                                    <div class="col s4"><strong>Distancia: </strong> ${distance} Km.</div>
-                                </div>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li>Dirección: ${elem.direccion}</li>
-                                        <li><a href="#">Teléfono: ${elem.telefono}</a></li>
-                                        <li>Tipo de Taller: ${elem.tipo}</li>
-                                    </ul>                          
-                                </div>
-                            </li>`);
-                            $('#garages').append(li);
-                        }
-                    });
+                    if (inputSearch == "" || inputSearch == "Todos") {
+                        getRoutes(map,elem,latitud,longitud);
+                    }else if(inputSearch == elem.distrito){
+                        getRoutes(map,elem,latitud,longitud);
+                    }else if(inputSearch == elem.tipo){
+                        getRoutes(map,elem,latitud,longitud);
+                    }else {
+                        console.log("aha");
+                    }
                 });
+
             },
             error: (error) => {
                 alert('Geolocalización fallada: '+error.message);
@@ -90,3 +78,28 @@ function addMarkerstoMap(map,elem) {
         }
     });
 }
+
+ function getRoutes(map,elem,latitud,longitud) {
+     $('#garages').empty();
+     map.getRoutes({
+         origin: [latitud, longitud],
+         destination: [elem.latitud, elem.longitud],
+         callback: function(response){
+             const distance = response[0].legs[0].distance.value/1000;
+             const li=$(`<li>
+                                <div class="collapsible-header">
+                                    <div class="col s8"><i class="material-icons">location_on</i>${elem.nombre}</div>
+                                    <div class="col s4"><strong>Distancia: </strong> ${distance} Km.</div>
+                                </div>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li>Dirección: ${elem.direccion}</li>
+                                        <li><a href="#">Teléfono: ${elem.telefono}</a></li>
+                                        <li>Tipo de Taller: ${elem.tipo}</li>
+                                    </ul>                          
+                                </div>
+                            </li>`);
+             $('#garages').append(li);
+         }
+     });
+ }
