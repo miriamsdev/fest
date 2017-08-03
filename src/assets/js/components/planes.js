@@ -16,15 +16,15 @@ const Planes = ()=>{
             const collap_body = $('<div class="collapsible-body"></div>');
             const labelmobile = $('<label for="slider">Número de Cuotas</label>');
             const rangemobile = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
-            const primamobile = $('<p>S/ 0.00</p>');
+            const primamobile = $('<p>S/ 0.00</p><br><h5>COBERTURA<h5>');
             const buttonmobile = $('<button>Adquirir</button>');
             
             
             const plan = $('<div class="hide-on-small-only col m4 l4"></div>');
-            const contenido = $('<h4>'+state.plan[i].nombre+'</h4>');
+            const contenido = $('<h6>'+state.plan[i].nombre+'</h6>');
             const label = $('<label for="slider">Número de Cuotas</label>');
             const range = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
-            const prima = $('<p>S/ 0.00</p>');
+            const prima = $('<p>S/ 0.00</p><br><h4>COBERTURA<h4>');
             const button = $('<button>Adquirir</button>');
             
             let selectrange = $(".value").text();
