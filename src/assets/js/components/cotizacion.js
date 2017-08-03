@@ -7,7 +7,7 @@ const Cotizacion = () => {
     const marca = $('<span>Marca:</span><br>');
     const modelo = $('<span>Modelo:</span><br>');
     const año = $('<span>Año:</span><br>');
-    const plan = $('<span>Plan:</span><br>');
+    const plan = $('<span>Plan:'+ state.selectedPlan +'</span><br>');
     const descripcion = $('<p>lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor</p>');
     
     cotizacion.append(name);

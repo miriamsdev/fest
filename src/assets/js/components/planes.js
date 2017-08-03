@@ -15,7 +15,7 @@ const Planes = (update) => {
             const collap_header = $('<div class="collapsible-header">Plan<br>'+state.plan[i].nombre+'</div>');
             const collap_body = $('<div class="collapsible-body"></div>');
             const labelmobile = $('<label for="slider">Número de Cuotas</label>');
-            const rangemobile = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
+            const rangemobile = $('<form action="#"><p class="range-field"><input id="range" type="range" value="0" min="0" max="12" step="6"/></p></form>');
             const primamobile = $('<p>S/ 0.00</p>');
             const buttonmobile = $('<button type="button" name="button">Adquirir</button>');
             
@@ -23,7 +23,7 @@ const Planes = (update) => {
             const plan = $('<div class="hide-on-small-only col m4 l4"></div>');
             const contenido = $('<h6>'+state.plan[i].nombre+'</h6>');
             const label = $('<label for="slider">Número de Cuotas</label>');
-            const range = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
+            const range = $('<form action="#"><p class="range-field"><input id="range" type="range" value="0" min="0" max="12" step="6"/></p></form>');
             const prima = $('<p>S/ 0.00</p>');
             const button = $('<button type="button" name="button">Adquirir</button>');
             
@@ -67,7 +67,7 @@ const Planes = (update) => {
             });
             
             button.on('click', _=>{
-                state.selectPlan = state.plan[i].id; 
+                state.selectedPlan = state.plan[i].id; 
                 state.screen = Cotizacion;
                 const root =$('#root');
                 render(root);

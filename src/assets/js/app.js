@@ -16,7 +16,7 @@ const render = (root)=>{
 const state = {
     screen : null,
     plan: null,
-    selectPlan: null,
+    selectedPlan: null,
     cobertura: null
 };
 
