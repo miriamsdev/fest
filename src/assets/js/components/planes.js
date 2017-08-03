@@ -15,7 +15,9 @@ const Planes = (update) => {
             const collap_header = $('<div class="collapsible-header">Plan<br>'+state.plan[i].nombre+'</div>');
             const collap_body = $('<div class="collapsible-body"></div>');
             const labelmobile = $('<label for="slider">Número de Cuotas</label>');
-            const rangemobile = $('<form action="#"><p class="range-field"><input id="range" type="range" value="0" min="0" max="12" step="6"/></p></form>');
+            const formobile = $('<form action="#"></form>');
+            const range_fieldmobile = $('<p class="range-field"></p>');
+            const rangemobile = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
             const primamobile = $('<p>S/ 0.00</p>');
             const buttonmobile = $('<button type="button" name="button">Adquirir</button>');
             
@@ -23,21 +25,23 @@ const Planes = (update) => {
             const plan = $('<div class="hide-on-small-only col m4 l4"></div>');
             const contenido = $('<h6>'+state.plan[i].nombre+'</h6>');
             const label = $('<label for="slider">Número de Cuotas</label>');
-            const range = $('<form action="#"><p class="range-field"><input id="range" type="range" value="0" min="0" max="12" step="6"/></p></form>');
+            const form = $('<form action="#"></form>');
+            const range_field = $('<p class="range-field"></p>');
+            const range = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
             const prima = $('<p>S/ 0.00</p>');
             const button = $('<button type="button" name="button">Adquirir</button>');
             
             let selectrange = $(".value").text();
             let valueprima = state.plan[i].prima;
             
-            range.on("change", function(){
-                let operacion = parseInt(valueprima * (this.value));
-                prima.text("S/ "+operacion);
-            });
-            
             rangemobile.on("change", function(){
                 let operacion = parseInt(valueprima * (this.value));
                 primamobile.text("S/ "+operacion);
+            });
+            
+            range.on("change", function(){
+                let operacion = parseInt(valueprima * (this.value));
+                prima.text("S/ "+operacion);
             });
             
             $(document).ready(function(){
@@ -46,15 +50,18 @@ const Planes = (update) => {
             
             li.append(collap_header);
             collap_body.append(labelmobile);
-            collap_body.append(rangemobile);
+            formobile.append(range_fieldmobile);
+            range_fieldmobile.append(rangemobile);
+            collap_body.append(formobile);
             collap_body.append(primamobile);
             li.append(collap_body);
             ul.append(li);
             contmobile.append(ul);
             
             plan.append(contenido);
-            plan.append(label);
-            plan.append(range);
+            form.append(range_field);
+            range_field.append(range);
+            plan.append(form);
             plan.append(prima);
                                          
             $.each(state.plan[i].coberturas, (i,val)=>{
