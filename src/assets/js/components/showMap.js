@@ -1,4 +1,4 @@
-const showMap = (district) => {
+const showMap = (inputSearch) => {
     const mapa = $('<div id="map"></div>');
     let latitud, longitud;
     $( _ =>{
@@ -9,9 +9,11 @@ const showMap = (district) => {
             lng: -77.028333
         });
         state.garage.forEach((elem)=> {
-            if (district == "" || district == "Todos") {
+            if (inputSearch == "" || inputSearch == "Todos") {
                 addMarkersto(map,elem);
-            }else if(district == elem.distrito){
+            }else if(inputSearch == elem.distrito){
+                addMarkersto(map,elem);
+            }else if(inputSearch == elem.tipo){
                 addMarkersto(map,elem);
             }else {
                 console.log("aha");

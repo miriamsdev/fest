@@ -1,25 +1,6 @@
 const Garages = (update) =>{
   const container = $('<section class="container"></section>');
   const row = $('<div class="row">Talleres</div>');
-  const ul = $(`<ul class="collapsible" data-collapsible="accordion">
-    </ul>`);
-  state.garage.forEach((e)=>{
-      const li=$(`<li>
-            <div class="collapsible-header"><i class="material-icons"></i>${e.nombre}</div>
-            <div class="collapsible-body">
-                <ul>
-                    <li>Dirección: ${e.direccion}</li>
-                    <li><a href="#">Teléfono: ${e.telefono}</a></li>
-                    <li>Tipo de Taller: ${e.tipo}</li>
-                </ul>                          
-            </div>
-        </li>`);
-      ul.append(li);
-  });
-
-    row.append(ul);
-    container.append(row);
-        ul.collapsible();
 
     const divFilter = $('<div class="row"></div>');
     const department = $(`<div class="input-field col s12 m3">                            
@@ -42,40 +23,52 @@ const Garages = (update) =>{
                             <option value="" disabled selected>Elige una opción</option>
                             <option value="Todos">Todos</option>
                          </select>`);
+    Array.prototype.unique=function(a){
+        return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
+    });
 
-    // Array.prototype.unique = (element) =>{
-    //     return function(){return this.filter(element)}}(function(element,b,c){return c.indexOf(element,b+1)<0
-    // });
-        const arr=[];
-    const districtFilter = state.garage.map((e)=>{
-        return arr.push(e.distrito);
-    });
-    console.log(districtFilter);
-    let option;
+    const arrDistrict=[], arrTypeGarage=[];
     state.garage.forEach((e)=>{
-        option = $(`<option value="${e.distrito}" data-lat="${e.latitud}" data-lng="${e.longitud}">${e.distrito}</option>`);
-        selectDis.append(option);
+        return arrDistrict.push(e.distrito);
     });
+    console.log(arrDistrict.unique());
+    let option, objDistrict = arrDistrict.unique();
+
+    for(let elem in objDistrict){
+        option = $(`<option value="${objDistrict[elem]}">${objDistrict[elem]}</option>`);
+        selectDis.append(option);
+    };
     const labelDis = $('<label>DISTRITO</label>');
     //multiple
-    const typeGarage = $(`<div class="input-field col s12 m3">
-                            <select>
-                              <option value="" disabled selected>Elige una opción</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                            </select>
-                            <label>TIPO DE TALLER</label>
-                          </div>`);
+    const typeGarage = $(`<div class="input-field col s12 m3"></div>`);
+    const selectTypeGarage = $('<select><option value="" disabled selected>Elige una opción</option><option value="Todos">Todos</option></select>');
+
+    state.garage.forEach((e)=>{
+        return arrTypeGarage.push(e.tipo);
+    });
+    console.log(arrTypeGarage.unique());
+    let optionTypes, objType = arrTypeGarage.unique();
+
+    for(let elem in objType){
+        optionTypes = $(`<option value="${objType[elem]}">${objType[elem]}</option>`);
+        selectTypeGarage.append(optionTypes);
+    };
+
+
+    const labelTaller = $('<label>TIPO DE TALLER</label>');
 
     divFilter.append(department);
     divFilter.append(province);
     district.append(selectDis);
     district.append(labelDis);
     divFilter.append(district);
+    typeGarage.append(selectTypeGarage);
+    typeGarage.append(labelTaller);
     divFilter.append(typeGarage);
     container.append(divFilter);
 
+
+    //Mapa
     const mapContainer =$('<div class="map-container"></div>');
     mapContainer.append(showMap(''));
     selectDis.on('change',(e)=>{
@@ -85,6 +78,33 @@ const Garages = (update) =>{
         mapContainer.append(showMap(districtSelected));
     });
 
+    selectTypeGarage.on('change',(e)=>{
+        const typeSelected = selectTypeGarage.val();
+        mapContainer.append(showMap(typeSelected));
+    });
+
     container.append(mapContainer);
+
+    //Lista talleres
+    const ul = $(`<ul class="collapsible" data-collapsible="accordion">
+    </ul>`);
+    state.garage.forEach((e)=>{
+        const li=$(`<li>
+            <div class="collapsible-header"><i class="material-icons"></i>${e.nombre}</div>
+            <div class="collapsible-body">
+                <ul>
+                    <li>Dirección: ${e.direccion}</li>
+                    <li><a href="#">Teléfono: ${e.telefono}</a></li>
+                    <li>Tipo de Taller: ${e.tipo}</li>
+                </ul>                          
+            </div>
+        </li>`);
+        ul.append(li);
+    });
+
+    row.append(ul);
+    container.append(row);
+    ul.collapsible();
+
     return container;
 };
