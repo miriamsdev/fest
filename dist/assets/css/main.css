@@ -1,3 +1,6 @@
+body {
+  /*  background: nth($color__corp,6);*/ }
+
 * {
   box-sizing: border-box;
   font-family: "roboto"; }

@@ -76,17 +76,15 @@ gulp.task('img-watch', ["img"], function (done) {
   done();
 });
 
-
 gulp.task("serve", function () {
   browserSync.init({
+    port:3000,  
     server: {
       baseDir: config.dist
     }
   });
-  gulp.watch(sources.sass, ['sass-watch']);
-  gulp.watch(sources.js, ['js-watch']);
+  gulp.watch(sources.sass, ['sass']);
+  gulp.watch(sources.js, ['js']);
   gulp.watch(sources.html, ['img-watch']);
   gulp.watch(sources.html, ['html-watch']);
 });
-
-

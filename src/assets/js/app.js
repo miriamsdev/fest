@@ -4,7 +4,7 @@ const render = (root)=>{
     const section = $('<section class="components"></section>');
 
     if(state.screen == null){
-        section.append(DniRegister( _ => render(root)));
+        section.append(PagosCulqi( _ => render(root)));
     }
     else{
         section.append(state.screen( _ => render(root)));
