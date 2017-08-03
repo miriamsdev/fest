@@ -39,27 +39,50 @@ const Garages = (update) =>{
                             <label>PROVINCIA</label>
                           </div>`);
 
-    const district = $(`<div class="input-field col s12 m3">
-                            <select multiple>
+    const district = $(`<div class="input-field col s12 m3"></div>`);
+    const selectDis = $(`<select>
+                            <option value="" disabled selected>Elige una opción</option>
+                            <option value="">Todos</option>
+                         </select>`);
+
+    // const districtFilter = state.garage.filter((e)=>{
+    //     return state.garage.indexOf(e.distrito)==-1;
+    // });
+    let option;
+    state.garage.forEach((e)=>{
+        option = $(`<option value="${e.distrito}" data-lat="${e.latitud}" data-lng="${e.longitud}">${e.distrito}</option>`);
+        selectDis.append(option);
+    });
+    const labelDis = $('<label>DISTRITO</label>');
+    //multiple
+    const typeGarage = $(`<div class="input-field col s12 m3">
+                            <select>
                               <option value="" disabled selected>Elige una opción</option>
                               <option value="1">Option 1</option>
                               <option value="2">Option 2</option>
                               <option value="3">Option 3</option>
                             </select>
-                            <label>DISTRITO</label>
+                            <label>TIPO DE TALLER</label>
                           </div>`);
 
     divFilter.append(department);
     divFilter.append(province);
+    district.append(selectDis);
+    district.append(labelDis);
     divFilter.append(district);
+    divFilter.append(typeGarage);
     container.append(divFilter);
-    container.append(showMap());
+
+    const mapContainer =$('<div class="map-container"></div>');
+    mapContainer.append(showMap());
+    selectDis.on('change',(e)=>{
+        const districtSelected = selectDis.val();
+        state.lat = option.data('lat');
+        state.lng = option.data('lng');
+        showMarkerSelected(districtSelected);
+       console.log(state.lat + "--"+state.lng);
+    });
+
+    container.append(mapContainer);
     return container;
 };
-// const getGarage = () => {
-//     $.getJSON('http://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/taller', (json) => {
-//
-//         state.garage = json;
-//         console.log(json);
-//     });
-// };

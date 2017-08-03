@@ -23,6 +23,9 @@ $( _=>{
     $.getJSON(`https://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/taller/04`, (json) => {
         state.garage = json;
         console.log(json);
+        $.each(json,(i,v)=>{
+            console.log(v.distrito);
+        });
         const root =$('#root');
         render(root);
         $('select').material_select();
