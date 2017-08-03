@@ -15,6 +15,15 @@ const PlacaRegister = (update) => {
   const continue_btn= $('<button id="continue" type="button" name="button" class="btn-large dataUser__button">CONTINUAR</button>');
   
   const result= $('<p id="result"></p>');
+
+    const progressBar = $(`<div class="progress__register">
+    <ul class="estado-3pasos estado-login">
+        <li class="paso-1 presente"><span><img class="breadcrumb p1" src="assets/img/iconos/usuario.svg" alt="user"></span><p></p></li>
+        <li class="paso-2 "><span><img class="breadcrumb p2" src="assets/img/iconos/auto.svg" alt="auto"></span><p></p></li>
+        <li class="paso-3 "><span><img class="breadcrumb gris" src="assets/img/iconos/plan.svg" alt="check"></span><p></p></li>
+        <li class="paso-4 "><span><img class="breadcrumb gris" src="assets/img/iconos/confirmacion.svg" alt="confirmacion"></span><p></p></li>
+    </ul>
+  </div>`);
     
   contentButton.append(search_btn);
   contentButton.append(continue_btn);
@@ -58,6 +67,7 @@ const PlacaRegister = (update) => {
   });
   continue_btn.hide();
   search_btn.prop('disabled', true);
+  vehicle_data.append(progressBar);
   return vehicle_data;
 }
 const check_vehicle= (placa) => {
@@ -68,7 +78,7 @@ const check_vehicle= (placa) => {
     state.vehicle= response;
     if (state.vehicle.anioFabricacion == 2017) {
       const vehicle_description= $('<span style="font-weight:bold;">'+ state.vehicle.marca + ' ' + state.vehicle.modelo + ' de ' + state.vehicle.anioFabricacion +'</span>');
-      report.text("Cuentas con un ");
+      report.text("Tienes un ");
       report.append(vehicle_description);
       $('#search').hide();
       $('#continue').show();

@@ -13,8 +13,14 @@ const Shopping_thanks = (update) => {
   message.append(garages_btn);
 
   garages_btn.on('click', _ => {
-    state.screen = Garages;
-    update();
+      state.screen = Garages;
+       $.getJSON(`https://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/taller/4`, (json) => {
+        state.garage = json;
+        update();
+           $('select').material_select();
+        });
+    
+   /* update();*/
   });
   return message;
 }

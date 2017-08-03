@@ -19,17 +19,12 @@ const state = {
     plan: null,
     idPlan: null,
     selectedPlan: null,
+    garage: null,
     cobertura: null,
-    idcotizacion : null
+    idcotizacion: null
 };
 
 $( _=>{
-
-    $.getJSON(`https://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/taller/${state.idcotizacion}`, (json) => {
-        state.garage = json;
-        const root = $('#root');
+const root = $('#root');
         render(root);
-        $('select').material_select();
-    });
-
 });

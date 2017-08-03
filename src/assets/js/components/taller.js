@@ -97,16 +97,7 @@ const Garages = (update) =>{
     row.append(ul);
     container.append(row);
     ul.collapsible();
-
-    const progressBar = $(`<div class="progress__register">
-    <ul class="estado-3pasos estado-login">
-        <li class="paso-1 presente"><span><img class="breadcrumb p1" src="assets/img/iconos/usuario.svg" alt="user"></span><p></p></li>
-        <li class="paso-2 presente"><span><img class="breadcrumb p2" src="assets/img/iconos/auto.svg" alt="auto"></span><p></p></li>
-        <li class="paso-3 presente"><span><img class="breadcrumb p3" src="assets/img/iconos/plan.svg" alt="check"></span><p></p></li>
-        <li class="paso-4 presente"><span><img class="breadcrumb p4" src="assets/img/iconos/confirmacion.svg" alt="confirmacion"></span><p></p></li>
-    </ul>
-  </div>`);
-    container.append(progressBar);
+    
     return container;
 };
 

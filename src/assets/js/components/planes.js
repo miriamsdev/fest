@@ -30,6 +30,15 @@ const Planes = (update) => {
             const prima = $('<p>S/ 0.00</p>');
             const button = $('<button type="button" name="button" class="btn-large dataUser__button">Adquirir</button>');
             
+            const progressBar = $(`<div class="progress__register">
+            <ul class="estado-3pasos estado-login">
+                <li class="paso-1 presente"><span><img class="breadcrumb p1" src="assets/img/iconos/usuario.svg" alt="user"></span><p></p></li>
+                <li class="paso-2 "><span><img class="breadcrumb p2" src="assets/img/iconos/auto.svg" alt="auto"></span><p></p></li>
+                <li class="paso-3 "><span><img class="breadcrumb p3" src="assets/img/iconos/plan.svg" alt="check"></span><p></p></li>
+                <li class="paso-4 "><span><img class="breadcrumb gris" src="assets/img/iconos/confirmacion.svg" alt="confirmacion"></span><p></p></li>
+            </ul>
+          </div>`);
+            
             let selectrange = $(".value").text();
             let valueprima = state.plan[i].prima;
             
@@ -98,7 +107,7 @@ const Planes = (update) => {
     container.append(titleplan);
     container.append(infoplan);    
     container.append(tablero);
-    
+    container.append(progressBar);
     return container;
 }
 

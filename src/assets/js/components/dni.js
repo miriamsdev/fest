@@ -12,7 +12,17 @@ const DniRegister = (update) => {
   const continue_btn= $('<button id="continue" type="button" class="btn-large dataUser__button">CONTINUAR</button>');
     
   const result= $('<p id="result"></p>');
-
+    
+  const progressBar = $(`<div class="progress__register">
+    <ul class="estado-3pasos estado-login">
+        <li class="paso-1 presente"><span><img class="breadcrumb p1" src="assets/img/iconos/usuario.svg" alt="user"></span><p></p></li>
+        <li class="paso-2 "><span><img class="breadcrumb gris" src="assets/img/iconos/auto.svg" alt="auto"></span><p></p></li>
+        <li class="paso-3 "><span><img class="breadcrumb gris" src="assets/img/iconos/plan.svg" alt="check"></span><p></p></li>
+        <li class="paso-4 "><span><img class="breadcrumb gris" src="assets/img/iconos/confirmacion.svg" alt="confirmacion"></span><p></p></li>
+    </ul>
+  </div>`);
+ 
+    
   contentDni.append(label);
   contentDni.append(user_dni);
   
@@ -23,7 +33,9 @@ const DniRegister = (update) => {
   user_data.append(contentDni);
   user_data.append(contentButton);
   user_data.append(result);
-
+  
+  
+    
   user_dni.on("keypress", (e)=> {
     let tecla= e.which || e.keyCode;
     if (tecla > 31 && (tecla < 48 || tecla > 57)) {
@@ -52,6 +64,7 @@ const DniRegister = (update) => {
   });
   continue_btn.hide();
   search_btn.prop('disabled', true);
+    user_data.append(progressBar);
   return user_data;
 }
 

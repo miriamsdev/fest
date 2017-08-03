@@ -48,7 +48,9 @@ hr.style-two {
 }
 ////Progress
 .progress__register {
-  margin-bottom: 70px;
+    position: relative;
+    bottom: -190px !important;
+    left: 1em;
 }
 .estado-3pasos {
   width: 90%;

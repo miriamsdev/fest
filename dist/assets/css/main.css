@@ -42,6 +42,9 @@ label {
 h1 {
   margin: 0; }
 
+.gris {
+  background: #cfcecf !important; }
+
 .dataUser__welcome {
   font-weight: bold;
   padding: 0.8em 0;
@@ -109,7 +112,9 @@ hr.style-two {
   background: #981d97; }
 
 .progress__register {
-  margin-bottom: 70px; }
+  position: relative;
+  bottom: -190px !important;
+  left: 1em; }
 
 .estado-3pasos {
   width: 90%;
