@@ -16,6 +16,10 @@ const state = {
     screen : null
 };
 
+const pago = {
+  idcotizacion : null
+};
+
 $( _=>{
     const root =$('#root');
     render(root);
