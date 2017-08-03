@@ -12,24 +12,23 @@ const Planes = (update) => {
             const contmobile = $('<div class="contmobile hide-on-large-only hide-on-med-only"></div>');
             const ul = $('<ul class="collapsible" data-collapsible="accordion">');
             const li = $('<li></li>');
-            const collap_header = $('<div class="dataUser__text collapsible-header">Plan<br>'+state.plan[i].nombre+'<i class="material-icons right more">expand_more</i><i class="material-icons right less" style="display: none">expand_less</i></div>');
+            const collap_header = $('<div class="dataUser__text collapsible-header" style="text-transform:capitalize;">Plan<br>'+state.plan[i].nombre.toLowerCase()+'<div class="iconA"><i class="material-icons right more">expand_more</i><i class="material-icons right less" style="display: none">expand_less</i></div></div>');
             const collap_body = $('<div class="collapsible-body"></div>');
             const labelmobile = $('<label for="slider">Número de Cuotas</label>');
             const formobile = $('<form action="#"></form>');
             const range_fieldmobile = $('<p class="range-field"></p>');
             const rangemobile = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
             const primamobile = $('<p>S/ 0.00</p>');
-            const buttonmobile = $('<button type="button" name="button">Adquirir</button>');
-            
-            
+            const buttonmobile = $('<button type="button" name="button" class="btn-large dataUser__button">Adquirir</button>');
+                        
             const plan = $('<div class="hide-on-small-only col m4 l4"></div>');
-            const contenido = $('<h6>'+state.plan[i].nombre+'</h6>');
+            const contenido = $('<h6 style="text-transform: capitalize;">'+state.plan[i].nombre.toLowerCase()+'</h6>');
             const label = $('<label for="slider">Número de Cuotas</label>');
             const form = $('<form action="#"></form>');
             const range_field = $('<p class="range-field"></p>');
             const range = $('<input id="range" type="range" value="0" min="0" max="12" step="6"/>');
             const prima = $('<p>S/ 0.00</p>');
-            const button = $('<button type="button" name="button">Adquirir</button>');
+            const button = $('<button type="button" name="button" class="btn-large dataUser__button">Adquirir</button>');
             
             let selectrange = $(".value").text();
             let valueprima = state.plan[i].prima;

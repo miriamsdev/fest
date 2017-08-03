@@ -15,6 +15,13 @@ header {
   bottom: 7em;
   left: 33%; }
 
+.iconA {
+  position: absolute;
+  font-size: 2em;
+  left: 9.5em;
+  color: #84bd00;
+  margin-top: -40px; }
+
 label {
   font-size: 1.2em !important;
   font-weight: bold !important;
@@ -22,6 +29,9 @@ label {
 
 .contmobile .collapsible {
   margin: 0; }
+
+.contmobile {
+  padding-top: 0.5em; }
 
 .plan .infoplan {
   margin-bottom: 10px; }
