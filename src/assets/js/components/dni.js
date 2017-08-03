@@ -81,7 +81,5 @@ const check_user= (dni) => {
     report.append(user_name);
     $('#search').hide();
     $('#continue').show();
-  }).fail(function() {
-    report.text('Persona no encontrada');
   });
 }

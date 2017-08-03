@@ -63,7 +63,7 @@ const PagosCulqi = (update)=>{
                 method :"POST",
                 dataType : "json",
                 contentType : "application/json",
-                url: "http://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/culqi/pagar",
+                url: "https://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/culqi/pagar",
                 data : '{"idPlan":'+state.idPlan+'}'
             }).done((data)=>{
                 state.idcotizacion = data;
