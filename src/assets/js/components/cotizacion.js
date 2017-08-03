@@ -1,14 +1,14 @@
 const Cotizacion = () => {
     const parent = $('<section class="container"></section>');
     const cotizacion = $('<div></div>');
-    const name = $('<span>Nombres:</span><br>');
-    const lastname = $('<span>Apellidos:</span><br>');
-    const placa = $('<span>Placa:</span><br>');
-    const marca = $('<span>Marca:</span><br>');
-    const modelo = $('<span>Modelo:</span><br>');
-    const año = $('<span>Año:</span><br>');
-    const plan = $('<span>Plan:'+ state.selectedPlan +'</span><br>');
-    const descripcion = $('<p>lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor</p>');
+    const name = $('<span>NOMBRES:</span><br>');
+    const lastname = $('<span>APELLIDOS:</span><br>');
+    const placa = $('<span>PLACA:</span><br>');
+    const marca = $('<span>MARCA:</span><br>');
+    const modelo = $('<span>MODELO:</span><br>');
+    const año = $('<span>AÑO:</span><br>');
+    const plan = $('<span>PLAN: '+ state.selectedPlan +'</span><br>');
+    const descripcion = $('<p>Este producto brinda cobertura a nivel local en cualquier taller. Llámanos en caso de accidentes y consultas, te atenderemos de manera personalizada las 24 horas los 365 días del año.</p>');
     
     cotizacion.append(name);
     cotizacion.append(lastname);
