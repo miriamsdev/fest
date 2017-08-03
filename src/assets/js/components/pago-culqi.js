@@ -66,7 +66,7 @@ const PagosCulqi = (update)=>{
                 url: "http://rasveuswap01-test01.azurewebsites.net/Laboratoria/v1/culqi/pagar",
                 data : '{"idPlan":'+state.idPlan+'}'
             }).done((data)=>{
-                console.log(data);
+                state.idcotizacion = data;
                 state.screen = Shopping_thanks;
                 update();
             });
